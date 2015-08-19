@@ -1,2 +1,0 @@
-/*global Core:true*/
-Core = {};

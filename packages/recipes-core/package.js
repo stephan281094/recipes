@@ -1,17 +1,16 @@
 'use strict';
 
 Package.describe({
-  summary: "Core"
+  name: 'recipes:core',
+  summary: 'Recipes core package',
+  version: '0.0.1',
+  git: 'https://github.com/stephan281094/recipes.git'
 });
 
-Package.on_use(function (api) {
-  var both = ['client', 'server'];
+Package.onUse(function(api) {
+  api.versionsFrom("METEOR@1.0");
+  api.use('recipes:lib@0.0.1');
 
-  api.use('meteorhacks:flow-router', client);
-  api.use('meteorhacks:flow-layout', client);
-
-  api.add_files('namespace.js');
-  api.add_files('lib/router/config.js'); // May need to be relocated
-
-  api.export('Core');
+  api.addFiles('namespace.js');
+  api.addFiles('lib/router/config.js'); // May need to be relocated
 });
