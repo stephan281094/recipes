@@ -1,0 +1,18 @@
+<head>
+  <title>Recipes</title>
+</head>
+
+<body>
+  <section class="hero">
+    <header role="banner" class="navigation">
+      <a href="/" class="logo">R</a>
+    </header>
+    <div class="content">
+      <div class="carousel gallery">
+        {{#each photos}}
+          <div class="gallery-cell image" style="{{ image src }}"></div>
+        {{/each}}
+      </div>
+    </div>
+  </section>
+</body>
