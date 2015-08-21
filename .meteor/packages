@@ -9,3 +9,5 @@ autopublish
 insecure
 meteorhacks:flow-router
 meteorhacks:flow-layout
+fourseven:scss
+wolves:bourbon
