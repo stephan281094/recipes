@@ -1,3 +1,5 @@
+var flickity;
+
 Template.body.helpers({
   photos: function() {
     return [
@@ -10,15 +12,19 @@ Template.body.helpers({
   image: function(src) {
     var src = src || '/images/notfound.jpg';
 
-    return 'background: url(' + src + ') center center;background-size: cover;'
+    return 'background:url(' + src + ') center center;background-size:cover;';
   }
 });
 
 Template.body.rendered = function() {
-  var flickity = new Flickity('.carousel', {
+  flickity = new Flickity('.carousel', {
     setGallerySize: false,
     prevNextButtons: false
   });
-
-
 };
+
+Template.body.events({
+  'mouseup .gallery-cell:not(.is-selected)': function (event, target) {
+    flickity.select($(event.target).index());
+  }
+});

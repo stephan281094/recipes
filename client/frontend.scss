@@ -84,12 +84,17 @@ a {
     opacity: 1;
     @include transition(opacity .35s);
 
-    &.is-selected {
-      z-index: 1;
-    }
-
     &:not(.is-selected) {
       opacity: 0.5;
+      cursor: w-resize;
+    }
+
+    &.is-selected {
+      z-index: 1;
+
+      & ~ .gallery-cell {
+        cursor: e-resize;
+      }
     }
   }
 }
