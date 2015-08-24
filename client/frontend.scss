@@ -63,7 +63,7 @@ a {
 }
 
 .content {
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
   @include flex(1);
   @include display(flex);
   @include flex-direction(column);
@@ -86,19 +86,40 @@ a {
 
     &:not(.is-selected) {
       opacity: 0.5;
-      cursor: w-resize;
+      cursor: pointer;
+
+      &:active {
+        cursor: -webkit-grabbing;
+        cursor: grabbing;
+      }
     }
 
     &.is-selected {
       z-index: 1;
-
-      & ~ .gallery-cell {
-        cursor: e-resize;
-      }
     }
   }
 }
 
 .gallery {
   height: 400px;
+}
+
+.body {
+  margin: 0 auto;
+  max-width: 950px;
+  width: 100%;
+  padding: 1rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: #888;
+  }
 }
