@@ -26,6 +26,7 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: 'Helvetica Neue', sans-serif;
+  @include flex-wrap(wrap);
   @include display(flex);
   @include flex-direction(column);
 }
@@ -67,6 +68,7 @@ a {
 }
 
 .recipe {
+  margin-top: 4.5rem;
   width: 100%;
   opacity: 0.6;
   max-width: 950px;
@@ -111,5 +113,11 @@ a {
     font-weight: 200;
     color: #888;
     display: block;
+  }
+}
+
+@media (max-width: 550px) {
+  .recipe {
+    margin-top: 0;
   }
 }
