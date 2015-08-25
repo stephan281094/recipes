@@ -78,10 +78,10 @@ a {
 
   &.is-selected {
     z-index: 1;
+    @include transform(none);
 
     &, h1, span {
       opacity: 1;
-      @include transform(none);
     }
   }
 
@@ -98,7 +98,6 @@ a {
     opacity: 0;
     padding: 0 1.5rem;
     @include transition($speed-long);
-    @include transform(translate3d(0, 3rem, 0));
   }
 
   h1 {
@@ -119,5 +118,11 @@ a {
 @media (max-width: 550px) {
   .recipe {
     margin-top: 0;
+    @include transform(none);
+
+    &, h1, span {
+      opacity: 1;
+      @include transition(none);
+    }
   }
 }
