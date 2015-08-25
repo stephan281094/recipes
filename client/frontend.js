@@ -1,5 +1,11 @@
 var flickity;
 
+UI.registerHelper('coverImage', function(src, options) {
+  var src = src || '/images/notfound.jpg';
+
+  return 'background:url(' + src + ') center center;background-size:cover;';
+});
+
 Template.body.helpers({
   recipes: function() {
     return [
@@ -7,24 +13,19 @@ Template.body.helpers({
       {id: 1, src: '/images/pizza.jpg', name: 'Italian Pizza', user: 'Jane'},
       {id: 2, src: '/images/dessert.jpg', name: 'Ice cream sandwich', user: 'Stephan'}
     ]
-  },
-
-  image: function(src) {
-    var src = src || '/images/notfound.jpg';
-
-    return 'background:url(' + src + ') center center;background-size:cover;';
   }
 });
 
 Template.body.rendered = function() {
-  flickity = new Flickity('.carousel', {
+  flickity = new Flickity('.recipes', {
     setGallerySize: false,
-    prevNextButtons: false
+    prevNextButtons: false,
+    pageDots: false
   });
 };
 
 Template.body.events({
-  'mouseup .gallery-cell:not(.is-selected)': function (event, template) {
+  'mouseup .recipe': function (event, template) {
     flickity.select(this.id);
   }
 });

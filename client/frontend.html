@@ -4,22 +4,20 @@
 </head>
 
 <body>
-  <section class="hero">
-    <header role="banner" class="navigation">
-      <a href="/" class="logo">R</a>
-    </header>
-    <div class="content">
-      <div class="carousel gallery">
-        {{#each recipes}}
-          <div class="gallery-cell">
-            <div class="image" style="{{ image src }}"></div>
-            <div class="body">
-              <h1>{{ name }}</h1>
-              <p>Submitted by {{ user }}</p>
-            </div>
-          </div>
-        {{/each}}
-      </div>
-    </div>
+  <header role="banner" class="navigation">
+    <a href="/" class="logo">R</a>
+  </header>
+  <section class="recipes">
+    {{#each recipes}}
+        {{> recipe}}
+    {{/each}}
   </section>
 </body>
+
+<template name="recipe">
+  <div class="recipe">
+    <div class="image" style="{{ coverImage src}}"></div>
+    <h1>{{ name }}</h1>
+    <span>Submitted by {{ user }}</span>
+  </div>
+</template>

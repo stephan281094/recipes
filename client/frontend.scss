@@ -3,6 +3,9 @@
 // Vendor
 @import ".meteor/local/build/programs/server/assets/packages/wolves_bourbon/bourbon/bourbon";
 
+$speed-long:   0.35s;
+$speed-medium: 0.275s;
+$speed-short:  0.2s;
 
 // Base
 * {
@@ -23,23 +26,17 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: 'Helvetica Neue', sans-serif;
+  @include display(flex);
+  @include flex-direction(column);
 }
 
 a {
   text-decoration: none;
 }
 
-// Hero
-.hero {
-  height: 100%;
-  @include display(flex);
-  @include flex-wrap(wrap);
-  @include flex-direction(column);
-  @include flex-basis;
-}
-
 // Navigation
 .navigation {
+  width: 100%;
   z-index: 10;
   overflow: auto;
 
@@ -54,7 +51,7 @@ a {
     line-height: 4rem;
     text-align: center;
     background: #000;
-    @include transition(.2s);
+    @include transition($speed-short);
 
     &:hover {
       background-color: #444;
@@ -62,70 +59,57 @@ a {
   }
 }
 
-.content {
-  padding-bottom: 3rem;
+// Recipes
+.recipes, .flickity-viewport {
   @include flex(1);
   @include display(flex);
   @include flex-direction(column);
 }
 
-.carousel {
-  margin: auto 0;
-  min-height: 400px;
-  background-color: #f2f2f2;
-  overflow: hidden;
+.recipe {
+  width: 100%;
+  opacity: 0.6;
+  max-width: 950px;
+  background-color: #fff;
+  @include transform(scale(0.95));
+  @include transition($speed-long);
 
-  .gallery-cell {
-    height: 100%;
-    min-height: 400px;
-    background-color: #fff;
-    max-width: 950px;
-    width: 100%;
-    opacity: 1;
-    @include transition(opacity .35s);
+  &.is-selected {
+    z-index: 1;
 
-    .image {
-      min-height: 400px;
-    }
-
-    &:not(.is-selected) {
-      opacity: 0.5;
-      cursor: pointer;
-
-      &:active {
-        cursor: -webkit-grabbing;
-        cursor: grabbing;
-      }
-    }
-
-    &.is-selected {
-      z-index: 1;
+    &, h1, span {
+      opacity: 1;
+      @include transform(none);
     }
   }
-}
 
-.gallery, .flickity-viewport {
-  position: relative;
-  min-height: 400px;
-  height: 100%;
-}
+  &:not(.is-selected) {
+    cursor: pointer;
+  }
 
-.body {
-  margin: 0 auto;
-  max-width: 950px;
-  width: 100%;
-  padding: 1rem;
+  .image {
+    height: 400px;
+    width: 100%;
+  }
+
+  h1, span {
+    opacity: 0;
+    padding: 0 1.5rem;
+    @include transition($speed-long);
+    @include transform(translate3d(0, 3rem, 0));
+  }
 
   h1 {
     font-size: 3rem;
     font-weight: 400;
-    margin: 0;
+    margin: 1rem 0 0;
   }
 
-  p {
+  span {
     margin: 0;
     font-size: 1.5rem;
     font-weight: 200;
     color: #888;
+    display: block;
   }
 }
