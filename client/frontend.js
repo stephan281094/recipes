@@ -1,11 +1,11 @@
 var flickity;
 
 Template.body.helpers({
-  photos: function() {
+  recipes: function() {
     return [
-      {id: 1, src: '/images/panini.jpg'},
-      {id: 2, src: '/images/pizza.jpg'},
-      {id: 3, src: '/images/desert.jpg'}
+      {id: 0, src: '/images/panini.jpg', name: 'Club Sandwich', user: 'John'},
+      {id: 1, src: '/images/pizza.jpg', name: 'Italian Pizza', user: 'Jane'},
+      {id: 2, src: '/images/dessert.jpg', name: 'Ice cream sandwich', user: 'Stephan'}
     ]
   },
 
@@ -24,7 +24,7 @@ Template.body.rendered = function() {
 };
 
 Template.body.events({
-  'mouseup .gallery-cell:not(.is-selected)': function (event, target) {
-    flickity.select($(event.target).index());
+  'mouseup .gallery-cell:not(.is-selected)': function (event, template) {
+    flickity.select(this.id);
   }
 });
