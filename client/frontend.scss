@@ -26,9 +26,6 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: 'Helvetica Neue', sans-serif;
-  @include flex-wrap(wrap);
-  @include display(flex);
-  @include flex-direction(column);
 }
 
 a {
@@ -61,20 +58,22 @@ a {
 }
 
 // Recipes
-.recipes, .flickity-viewport {
+body, .recipes, .flickity-viewport, .recipe {
+  @include flex-wrap(wrap);
   @include flex(1);
   @include display(flex);
   @include flex-direction(column);
 }
 
 .recipe {
-  margin-top: 4.5rem;
   width: 100%;
+  height: 100%;
   opacity: 0.6;
   max-width: 950px;
   background-color: #fff;
   @include transform(scale(0.95));
   @include transition($speed-long);
+  @include justify-content(center);
 
   &.is-selected {
     z-index: 1;
