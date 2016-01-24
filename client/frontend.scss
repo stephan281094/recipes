@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Vendor
-@import ".meteor/local/build/programs/server/assets/packages/wolves_bourbon/bourbon/bourbon";
+@import "{wolves:bourbon}/bourbon";
 
 $speed-long:   0.35s;
 $speed-medium: 0.275s;

@@ -8,8 +8,6 @@ autopublish
 insecure
 meteorhacks:flow-router
 meteorhacks:flow-layout
-fourseven:scss
-wolves:bourbon
 emenoh:flickity
 standard-minifiers
 meteor-base
@@ -25,3 +23,5 @@ random
 ejson
 spacebars
 check
+fourseven:scss
+wolves:bourbon
