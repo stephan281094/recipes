@@ -49,7 +49,7 @@ a {
     line-height: 4rem;
     text-align: center;
     background: #000;
-    @include transition($speed-short);
+    transition: $speed-short;
 
     &:hover {
       background-color: #444;
@@ -72,7 +72,7 @@ body, .recipes, .flickity-viewport, .recipe {
   max-width: 950px;
   background-color: #fff;
   @include transform(scale(0.95));
-  @include transition($speed-long);
+  transition: $speed-long;
   @include justify-content(center);
 
   &.is-selected {
@@ -81,6 +81,7 @@ body, .recipes, .flickity-viewport, .recipe {
 
     &, h1, span {
       opacity: 1;
+      @include transform(translateY(0));
     }
   }
 
@@ -96,7 +97,8 @@ body, .recipes, .flickity-viewport, .recipe {
   h1, span {
     opacity: 0;
     padding: 0 1.5rem;
-    @include transition($speed-long);
+    @include transform(translateY(1rem));
+    transition: $speed-long;
   }
 
   h1 {
