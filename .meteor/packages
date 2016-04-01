@@ -9,7 +9,6 @@ insecure
 meteorhacks:flow-router
 meteorhacks:flow-layout
 emenoh:flickity
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -25,3 +24,5 @@ spacebars
 check
 fourseven:scss
 wolves:bourbon
+standard-minifier-css
+standard-minifier-js
